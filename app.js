@@ -8,12 +8,14 @@ const mongoose = require ('mongoose');
 const expressLayouts = require('express-ejs-layouts');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+const axios = require('axios');
 
 // notifications handle
 // const { notifications } = require('./assets'); 
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const apiRouter = require('./routes/ajax');
 
 // mongodb connect
 // const dbName = 'YOUR-DATABASE-NAME';
@@ -45,7 +47,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({
+/* app.use(session({
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
     ttl: 24 * 60 * 60 // 1 day
@@ -56,7 +58,7 @@ app.use(session({
   cookie: {
     maxAge: 24 * 60 * 60 * 1000,
   },
-}));
+})); */
 app.use(flash());
 app.use((req, res, next) => {
   // app.locals.currentUser = req.session.currentUser;
@@ -66,6 +68,7 @@ app.use((req, res, next) => {
 // app.use(notifications);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/ajax', apiRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -84,6 +87,3 @@ app.use((err, req, res, next) => {
 });
 
 module.exports = app;
-
-
-//this is a test

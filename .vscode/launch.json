@@ -9,6 +9,16 @@
       "request": "launch",
       "name": "nodemon",
       "runtimeExecutable": "nodemon",
+      "program": "${workspaceFolder}/app.js",
+      "restart": true,
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "nodemon",
+      "runtimeExecutable": "nodemon",
       "program": "${workspaceFolder}/bin/www",
       "restart": true,
       "console": "integratedTerminal",
