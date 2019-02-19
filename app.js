@@ -14,7 +14,6 @@ const axios = require('axios');
 // const { notifications } = require('./assets'); 
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 const apiRouter = require('./routes/ajax');
 
 // mongodb connect
@@ -58,16 +57,15 @@ app.use(express.static(path.join(__dirname, 'public')));
   cookie: {
     maxAge: 24 * 60 * 60 * 1000,
   },
-})); */
+})); 
 app.use(flash());
 app.use((req, res, next) => {
   // app.locals.currentUser = req.session.currentUser;
   res.locals.currentUser = req.session.currentUser;
   next();
-});
+});*/
 // app.use(notifications);
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/ajax', apiRouter);
 
 // catch 404 and forward to error handler

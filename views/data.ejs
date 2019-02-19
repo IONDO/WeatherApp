@@ -1,0 +1,9 @@
+<h1><%= data.name %> Weather</h1>
+<p><%= data.weather[0].main %></p>
+<p><%= data.weather[0].description %></p>
+<img src="http://openweathermap.org/img/w/<%= data.weather[0].icon %>.png">
+<p>Temperature <%= data.main.temp %> &#8451;</p>
+<p>Pressure <%= data.main.pressure %> bar</p>
+<p>Humidity <%= data.main.humidity %></p>
+<p>Temperature range: <span><%= data.main.temp_min %> &#8451;</span> - 
+<span><%= data.main.temp_max %> &#8451;</span></p>
